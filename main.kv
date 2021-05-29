@@ -1,0 +1,1069 @@
+#:import Factory kivy.factory.Factory
+WindowManager:
+	LoadScreen:
+	SignIn:
+	CreateAccount:
+	ViewCreated:
+	ViewCreatedDetails:
+	ViewCreatedDates:
+	ViewCreatedAvailability:
+	ViewJoined:
+	ViewJoinedDetails:
+	ViewJoinedAvailability:
+	ViewJoinedPoll:
+	CreateEventDetails:
+	CreateEventDates:
+	CreateEventInvites:
+	JoinInvitations:
+	JoinDetails:
+	JoinAvailability:
+	JoinVote:
+	Profile:
+
+#Basic Components
+<Button>:
+	font_name: "Arial"
+
+<Label>:
+	font_name: "Arial"
+
+<TextInput>:
+	font_name: "Arial"
+	selection_color: (0.5, 0.5, 0.5, 0.5)
+
+<Button1@Button>:
+	font_size: self.height * 0.5
+    color: (1, 1, 1, 1)
+	background_color: (0,0,0,0) #transparent so you see the canvas rectangle
+	canvas.before:
+		Color:
+			rgba: (0.37, 0.70, 0.83, 1)
+		RoundedRectangle:
+			pos: self.pos
+			size: self.size
+			radius: [3,]
+		Color:
+			rgba: (0.50, 0.76, 0.86, 1) if self.state == "normal" else (0.20, 0.58, 0.73, 1)
+		RoundedRectangle:
+			pos: self.pos[0]+1, self.pos[1]+1
+			size: self.size[0]-2, self.size[1]-2
+			radius: [3,]
+
+<Button2@Button>:
+	font_size: self.height * 0.55
+	background_normal: ""
+	background_down: ""
+	color: (0, 0, 0, 1)
+	background_color: (1, 1, 1, 1)
+
+<Button3@Button>:
+	font_size: self.height * 0.45
+	background_normal: ""
+	background_down: ""
+	color: (1, 1, 1, 1)
+	background_color: (0, 0, 0, 0)
+	canvas.before:
+		Color:
+			rgba: (0.37, 0.70, 0.83, 1)
+		Rectangle:
+			pos: self.pos
+			size: self.size
+		Color:
+			rgba: (0.50, 0.76, 0.86, 1) if self.state == "normal" else (0.20, 0.58, 0.73, 1)
+		Rectangle:
+			pos: self.pos[0]+1, self.pos[1]+1
+			size: self.size[0]-2, self.size[1]-2
+
+<Button4@Button>:
+	font_size: self.height * 0.45
+	background_normal: ""
+	background_down: ""
+	color: (0, 0, 0, 1)
+	background_color: (0, 0, 0, 0)
+	canvas.before:
+		Color:
+			rgba: (0.75, 0.75, 0.75, 1)
+		Rectangle:
+			pos: self.pos
+			size: self.size
+		Color:
+			rgba: (0.95, 0.95, 0.95, 1) if self.state == "normal" else (0.75, 0.75, 0.75, 1)
+		Rectangle:
+			pos: self.pos[0]+1, self.pos[1]+1
+			size: self.size[0]-2, self.size[1]-2
+
+<Button1grey@Button>:
+	font_size: self.height * 0.5
+    color: (0, 0, 0, 1)
+	background_color: (0,0,0,0) #transparent so you see the canvas rectangle
+	canvas.before:
+		Color:
+			rgba: (0.75, 0.75, 0.75, 1)
+		RoundedRectangle:
+			pos: self.pos
+			size: self.size
+			radius: [3,]
+		Color:
+			rgba: (0.95, 0.95, 0.95, 1) if self.state == "normal" else (0.75, 0.75, 0.75, 1)
+		RoundedRectangle:
+			pos: self.pos[0]+1, self.pos[1]+1
+			size: self.size[0]-2, self.size[1]-2
+			radius: [3,]
+
+<Button1red@Button>:
+	font_size: self.height * 0.5
+    color: (0, 0, 0, 1)
+	background_color: (0,0,0,0) #transparent so you see the canvas rectangle
+	canvas.before:
+		Color:
+			rgba: (1, 0.36, 0.41, 1)
+		RoundedRectangle:
+			pos: self.pos
+			size: self.size
+			radius: [3,]
+		Color:
+			rgba: (1, 0.56, 0.59, 1) if self.state == "normal" else (1, 0.36, 0.41, 1)
+		RoundedRectangle:
+			pos: self.pos[0]+1, self.pos[1]+1
+			size: self.size[0]-2, self.size[1]-2
+			radius: [3,]
+
+<IconButton@Button>:
+	size_hint: 0.11, 0.083
+	background_normal: ""
+	background_down: ""
+	background_color: (1, 1, 1, 1)
+
+<LabelCaps@Label>:
+	font_size: self.height * 0.5
+	color: (0.5, 0.5, 0.5, 1)
+	background_color: (1, 0, 0, 1)
+
+<Label1@Label>:
+	color: (0, 0, 0, 1)
+	font_size: self.height * 0.5
+	size_hint_y: None
+	height: self.texture_size[1]
+
+<IconLabel@Label>:
+	color: (0, 0, 0, 1)
+	font_size: self.height * 0.5
+	size_hint: 0.19, 0.064
+
+<TextInput1@TextInput>:
+	font_size: self.height * 0.55
+	multiline: False
+	halign: "center"
+	write_tab: False
+ 
+	background_normal: ""
+	background_active: ""
+	background_color: (1, 1, 1, 0)
+	foreground_color: (0.50, 0.76, 0.86, 1) if self.focus == True else (0.5, 0.5, 0.5, 1)
+	cursor_color: (0.50, 0.76, 0.86, 1)
+
+	password_mask: "*"
+
+	canvas.before:
+		Color:
+			rgba: (0.50, 0.76, 0.86, 1) if self.focus == True else (0.5, 0.5, 0.5, 1)
+		Rectangle:
+			size: self.size[0]*0.89, root.size[1]*0.02
+			pos: self.pos[0]+(self.size[0]*0.056), self.pos[1]+(0.107*self.size[1])
+
+<TextInput2@TextInput>:
+	multiline: True
+	halign: "center"
+	padding: [0, (self.height / 2.0 - (self.line_height / 2.0) * len(self._lines))]
+
+	background_normal: ""
+	background_active: ""
+	background_disabled_normal: ""
+	background_color: (0.98, 0.98, 0.98, 1) if self.focus == True else (0.95, 0.95, 0.95, 1)
+	foreground_color: (0.50, 0.50, 0.50, 1) if self.focus == True else (0.70, 0.70, 0.70, 1)
+	cursor_color: (0.50, 0.76, 0.86, 1)
+
+<ModalView>:
+	background_color: (1, 1, 1, 1)
+
+#Popups
+<Info1@ModalView>:
+	infoText: infoText
+	size_hint: 0.75, 0.15
+	pos_hint: {"x": 0.12, "top": 0.91}
+	background_color: (1, 1, 1, 0)
+	FloatLayout:
+		Widget:
+			size_hint: 1, 1
+			pos_hint: {"x": 0, "top": 1}
+			canvas.before:
+				Color:
+					rgba: (0.95, 0.95, 0.95, 1)
+				Rectangle:
+					size: root.size[0], root.size[1]
+					pos: root.pos[0], root.pos[1]
+		Label:
+			id: infoText
+			font_size: 13
+			color: (0, 0, 0, 1)
+			size_hint: 1, 1
+			pos_hint: {"x": 0, "top": 1}
+			text_size: self.size[0]*0.9, self.size[1]
+			halign: "center"
+			valign: "middle"
+
+<ModifyEvent@ModalView>:
+	auto_dismiss: False
+	eventname: eventname
+	description: description
+	FloatLayout:
+		Label1:
+			text: "event name"
+			size_hint: 1, 0.086
+			pos_hint: {"x": 0, "top": 0.95}
+		TextInput1:
+			id: eventname
+			size_hint: 1, 0.095
+			pos_hint: {"x": 0, "top": 0.86}
+		Label1:
+			text: "description"
+			size_hint: 1, 0.086
+			pos_hint: {"x": 0, "top": 0.75}
+		TextInput2:
+			id: description
+			size_hint: 0.89, 0.14
+			pos_hint: {"x": 0.057, "top": 0.66}
+		#location
+		IconButton:
+			size_hint: 0.37, 0.10
+			pos_hint: {"x": 0.034, "top": 0.48}
+			on_release:
+				Factory.CreateLocation().open()
+		Image:
+			source: "images/add1.png"
+			size_hint: 0.14, 0.14
+			pos_hint: {"x": 0.04, "top": 0.50}
+		Label1:
+			text: "location"
+			text_size: self.size
+			halign: "left"
+			valign: "middle"
+			x: self.parent.x
+			y: self.parent.y
+			size_hint: 0.23, 0.09
+			pos_hint: {"x": 0.23, "top": 0.475}
+		#tags
+		IconButton:
+			size_hint: 0.37, 0.10
+			pos_hint: {"x": 0.034, "top": 0.37}
+			on_release:
+				Factory.CreateTags().open()
+		Image:
+			source: "images/add1.png"
+			size_hint: 0.14, 0.14
+			pos_hint: {"x": 0.04, "top": 0.39}
+		Label1:
+			text: "tags"
+			text_size: self.size
+			halign: "left"
+			valign: "middle"
+			x: self.parent.x
+			y: self.parent.y
+			size_hint: 0.23, 0.09
+			pos_hint: {"x": 0.23, "top": 0.365}
+		Button1:
+			text: "save changes"
+			size_hint: 0.9, 0.1
+			pos_hint: {"x": 0.05, "top": 0.22}
+			on_release: root.save()
+		Button2:
+			text: "cancel"
+			size_hint: 1, 0.072
+			pos_hint: {"x": 0, "top": 0.1}
+			on_release: root.dismiss()
+
+<ManageInvites@ModalView>:
+	auto_dismiss: False
+
+<SeeInvitees@ModalView>:
+	auto_dismiss: False
+
+<CreateDescription@ModalView>:
+	description: description
+	FloatLayout:
+		Button1:
+	        text: "add description"
+	        size_hint: 0.61, 0.12
+			pos_hint: {"x": 0.19, "top": 0.27}
+			on_release: root.addDescriptionButton()
+		Button2:
+		    text: "Cancel"
+		    color: (0.15, 0.22, 0.28, 1)
+		    background_color: (0, 0, 0, 0)
+		    size_hint: 1, 0.072
+			pos_hint: {"x": 0, "top": 0.12}
+	        on_release: root.dismiss()
+		Label1:
+			text: "description"
+			size_hint: 1, 0.086
+			pos_hint: {"x": 0, "top": 0.67}
+		TextInput2:
+			id: description
+			size_hint: 0.89, 0.12
+			pos_hint: {"x": 0.057, "top": 0.58}
+
+
+<CreatePoll@ModalView>:
+	IconButton:
+		size_hint: 0.07, 0.053
+		pos_hint: {"x": 0.87, "top": 0.82}
+		on_release: root.info()
+		Image:
+			source: "images/info1.png"
+			y: self.parent.y
+			x: self.parent.x
+			size: self.parent.size
+
+<CreateLocation@ModalView>:
+	location: location
+	details: details
+	FloatLayout:
+		Button1:
+	        text: "add location"
+	        size_hint: 0.61, 0.12
+			pos_hint: {"x": 0.19, "top": 0.27}
+			on_release: root.addLocationButton()
+		Button2:
+		    text: "Cancel"
+		    color: (0.15, 0.22, 0.28, 1)
+		    background_color: (0, 0, 0, 0)
+		    size_hint: 1, 0.072
+			pos_hint: {"x": 0, "top": 0.12}
+	        on_release: root.dismiss()
+	    Label1:
+			text: "location name"
+			size_hint: 1, 0.086
+			pos_hint: {"x": 0, "top": 0.88}
+		TextInput1:
+			id: location
+			size_hint: 1, 0.095
+			pos_hint: {"x": 0, "top": 0.775}
+		Label1:
+			text: "directions or address"
+			size_hint: 1, 0.086
+			pos_hint: {"x": 0, "top": 0.65}
+		TextInput2:
+			id: details
+			size_hint: 0.89, 0.14
+			pos_hint: {"x": 0.057, "top": 0.56}
+
+<CreateTags@ModalView>:
+	tag1: tag1
+	tag2: tag2
+	tag3: tag3
+	FloatLayout:
+	    Label1:
+	    	text: "add tags"
+	    	size_hint: 1, 0.086
+	    	pos_hint: {"x": 0, "top": 0.92}
+	    Label1:
+	    	text: "(you can add up to 3 event tags)"
+	    	font_size: self.height * 0.55
+	    	color: (0.5, 0.5, 0.5, 1)
+	    	size_hint: 1, 0.072
+	    	pos_hint: {"x": 0, "top": 0.82}
+	    TextInput2:
+	    	id: tag1
+	    	size_hint: 0.90, 0.09
+	    	pos_hint: {"x": 0.05, "top": 0.69}
+	    	write_tab: False
+	    	multiline: False
+	    	font_size: self.height * 0.45
+	    	line_height: self.height * 0.84
+	    	input_filter: lambda text, from_undo: text[:12 - len(self.text)]
+	    TextInput2:
+	    	id: tag2
+	    	size_hint: 0.90, 0.09
+	    	pos_hint: {"x": 0.05, "top": 0.57}
+	    	write_tab: False
+	    	multiline: False
+	    	font_size: self.height * 0.45
+	    	line_height: self.height * 0.84
+	    	input_filter: lambda text, from_undo: text[:12 - len(self.text)]
+	    TextInput2:
+	    	id: tag3
+	    	size_hint: 0.90, 0.09
+	    	pos_hint: {"x": 0.05, "top": 0.45}
+	    	write_tab: False
+	    	multiline: False
+	    	font_size: self.height * 0.45
+	    	line_height: self.height * 0.84
+	    	input_filter: lambda text, from_undo: text[:12 - len(self.text)]
+	    Button1:
+	        text: "add tags"
+	        size_hint: 0.61, 0.12
+			pos_hint: {"x": 0.19, "top": 0.27}
+			on_release: root.addTagsButton()
+		Button2:
+		    text: "Cancel"
+		    color: (0.15, 0.22, 0.28, 1)
+		    background_color: (0, 0, 0, 0)
+		    size_hint: 1, 0.072
+			pos_hint: {"x": 0, "top": 0.12}
+	        on_release: root.dismiss()
+
+#Icon Bars
+<IconBar@FloatLayout>:
+	IconLabel:
+		text: "events"
+		pos_hint: {"x": 0.031, "top": 0.073}
+	IconLabel:
+		text: "create"
+		pos_hint: {"x": 0.28, "top": 0.073}
+	IconLabel:
+		text: "join"
+		pos_hint: {"x": 0.53, "top": 0.073}
+	IconLabel:
+		text: "profile"
+		pos_hint: {"x": 0.78, "top": 0.073}
+	Widget:
+		size_hint: 1, 1
+		canvas.before:
+			Color:
+				rgba: (0.75, 0.75, 0.75, 1)
+			Rectangle:
+				size: root.size[0], root.size[1]*0.0015
+				pos: 0, root.size[1] * 0.19
+
+<ViewBar@IconBar>:
+	IconButton:
+		pos_hint: {"x": 0.069, "top": 0.16}
+		Image:
+			source: "images/icon1.png"
+			y: self.parent.y
+			x: self.parent.x
+			size: self.parent.size
+	IconButton:
+		pos_hint: {"x": 0.32, "top": 0.16}
+		on_release:
+			app.root.current = "createeventdetails"
+		Image:
+			source: "images/icon2a.png"
+			y: self.parent.y
+			x: self.parent.x
+			size: self.parent.size
+	IconButton:
+		pos_hint: {"x": 0.57, "top": 0.16}
+		on_release:
+			app.root.current = "joininvitations"
+		Image:
+			source: "images/icon3a.png"
+			y: self.parent.y
+			x: self.parent.x
+			size: self.parent.size
+	IconButton:
+		pos_hint: {"x": 0.82, "top": 0.16}
+		on_release:
+			app.root.current = "profile"
+		Image:
+			source: "images/icon4a.png"
+			y: self.parent.y
+			x: self.parent.x
+			size: self.parent.size
+
+<CreateBar@IconBar>:
+	IconButton:
+		pos_hint: {"x": 0.069, "top": 0.16}
+		on_release:
+			app.root.current = "viewcreated"
+		Image:
+			source: "images/icon1a.png"
+			y: self.parent.y
+			x: self.parent.x
+			size: self.parent.size
+	IconButton:
+		pos_hint: {"x": 0.32, "top": 0.16}
+		Image:
+			source: "images/icon2.png"
+			y: self.parent.y
+			x: self.parent.x
+			size: self.parent.size
+	IconButton:
+		pos_hint: {"x": 0.57, "top": 0.16}
+		on_release:
+			app.root.current = "joininvitations"
+		Image:
+			source: "images/icon3a.png"
+			y: self.parent.y
+			x: self.parent.x
+			size: self.parent.size
+	IconButton:
+		pos_hint: {"x": 0.82, "top": 0.16}
+		on_release:
+			app.root.current = "profile"
+		Image:
+			source: "images/icon4a.png"
+			y: self.parent.y
+			x: self.parent.x
+			size: self.parent.size
+
+<JoinBar@IconBar>:
+	IconButton:
+		pos_hint: {"x": 0.069, "top": 0.16}
+		on_release:
+			app.root.current = "viewcreated"
+		Image:
+			source: "images/icon1a.png"
+			y: self.parent.y
+			x: self.parent.x
+			size: self.parent.size
+	IconButton:
+		pos_hint: {"x": 0.32, "top": 0.16}
+		on_release:
+			app.root.current = "createeventdetails"
+		Image:
+			source: "images/icon2a.png"
+			y: self.parent.y
+			x: self.parent.x
+			size: self.parent.size
+	IconButton:
+		pos_hint: {"x": 0.57, "top": 0.16}
+		Image:
+			source: "images/icon3.png"
+			y: self.parent.y
+			x: self.parent.x
+			size: self.parent.size
+	IconButton:
+		pos_hint: {"x": 0.82, "top": 0.16}
+		on_release:
+			app.root.current = "profile"
+		Image:
+			source: "images/icon4a.png"
+			y: self.parent.y
+			x: self.parent.x
+			size: self.parent.size
+
+<ProfileBar@IconBar>:
+	IconButton:
+		pos_hint: {"x": 0.069, "top": 0.16}
+		on_release:
+			app.root.current = "viewcreated"
+		Image:
+			source: "images/icon1a.png"
+			y: self.parent.y
+			x: self.parent.x
+			size: self.parent.size
+	IconButton:
+		pos_hint: {"x": 0.32, "top": 0.16}
+		on_release:
+			app.root.current = "createeventdetails"
+		Image:
+			source: "images/icon2a.png"
+			y: self.parent.y
+			x: self.parent.x
+			size: self.parent.size
+	IconButton:
+		pos_hint: {"x": 0.57, "top": 0.16}
+		on_release:
+			app.root.current = "joininvitations"
+		Image:
+			source: "images/icon3a.png"
+			y: self.parent.y
+			x: self.parent.x
+			size: self.parent.size
+	IconButton:
+		pos_hint: {"x": 0.82, "top": 0.16}
+		Image:
+			source: "images/icon4.png"
+			y: self.parent.y
+			x: self.parent.x
+			size: self.parent.size
+
+#Screens
+<LoadScreen>:
+	background_color: (1, 1, 1, 1)
+	name: "loadscreen"
+	FloatLayout:
+	    Button1:
+	        text: "sign in"
+			size_hint: 0.61, 0.12
+			pos_hint: {"x": 0.19, "top": 0.63}
+			on_release:
+				app.root.current = "signin"
+				root.manager.transition.direction = "left"
+		Widget:
+			canvas.before:
+				Color:
+					rgba: (0.50, 0.76, 0.86, 1)
+				Rectangle:
+					size: root.size[0], root.size[1]*0.002
+					pos: 0, root.size[1]*0.395
+				Color:
+					rgba: (1, 1, 1, 1)
+				Rectangle:
+					size: root.size[0]*0.18, root.size[1]*0.07
+					pos: root.size[0]*0.41, root.size[1]*0.36
+		LabelCaps:
+			size_hint: 0.18, 0.07
+			pos_hint: {"x": 0.41, "top": 0.43}
+			text: "OR"
+		Button2:
+			text: "create account"
+			size_hint: 1, 0.086
+			pos_hint: {"x": 0, "top": 0.31}
+			on_release:
+				app.root.current = "createaccount"
+				root.manager.transition.direction = "left"
+
+<SignIn>:
+	name: "signin"
+	usernameemail: usernameemail
+	password: password
+	FloatLayout:
+		Label1:
+			text: "username or email"
+			size_hint: 1, 0.086
+			pos_hint: {"x": 0, "top": 0.88}
+		TextInput1:
+			id: usernameemail
+			size_hint: 1, 0.095
+			pos_hint: {"x": 0, "top": 0.775}
+		Label1:
+			text: "password"
+			size_hint: 1, 0.086
+			pos_hint: {"x": 0, "top": 0.63}
+		TextInput1:
+			id: password
+			password: True
+			size_hint: 1, 0.086
+			pos_hint: {"x": 0, "top": 0.53}
+			on_text_validate:
+				root.manager.transition.duration = 0
+			    root.signInButton()
+		Button1:
+			text: "sign in"
+			#size_hint: 0.61, 0.12
+			#pos_hint: {"x": 0.19, "top": 0.33}
+			size_hint: 0.61, 0.13
+			pos_hint: {"x": 0.19, "top": 0.29}
+			on_release:
+				root.manager.transition.duration = 0
+			    root.signInButton()
+		#Button2:
+		#	text: "reset password"
+		#	color: (0.15, 0.22, 0.28, 1)
+		#	size_hint: 1, 0.072
+		#	pos_hint: {"x": 0, "top": 0.15}
+		#	on_release:
+		#	    Factory.ResetPw().open()
+		Button2:
+			text: "< back"
+			color: (0.15, 0.22, 0.28, 1)
+			size_hint: 0.24, 0.072
+			pos_hint: {"x": 0, "top": 0.99}
+			on_release:
+				usernameemail.text = ""
+				password.text = ""
+				app.root.current = "loadscreen"
+	            root.manager.transition.direction = "right"
+
+<CreateAccount>:
+	name: "createaccount"
+	displayName: displayName
+	username: username
+	password: password
+	passwordConf: passwordConf
+	email: email
+	FloatLayout:
+		IconButton:
+			size_hint: 0.07, 0.053
+			pos_hint: {"x": 0.071, "top": 0.92}
+			on_release: root.info()
+			Image:
+				source: "images/info1.png"
+				y: self.parent.y
+				x: self.parent.x
+				size: self.parent.size
+		IconButton:
+			size_hint: 0.07, 0.053
+			pos_hint: {"x": 0.071, "top": 0.76}
+			on_release: root.info()
+			Image:
+				source: "images/info1.png"
+				y: self.parent.y
+				x: self.parent.x
+				size: self.parent.size
+		Label1:
+			text: "name"
+			size_hint: 1, 0.09
+			pos_hint: {"x": 0, "top": 0.94}
+			input_filter: lambda text, from_undo: text[:30 - len(self.text)]
+		TextInput1:
+			id: displayName
+			size_hint: 1, 0.071
+			pos_hint: {"x": 0, "top": 0.865}
+		Label1:
+			text: "username"
+			size_hint: 1, 0.09
+			pos_hint: {"x": 0, "top": 0.78}
+			input_filter: lambda text, from_undo: text[:30 - len(self.text)]
+		TextInput1:
+			id: username
+			size_hint: 1, 0.071
+			pos_hint: {"x": 0, "top": 0.705}
+		Label1:
+			text: "password"
+			size_hint: 1, 0.09
+			pos_hint: {"x": 0, "top": 0.63}
+			input_filter: lambda text, from_undo: text[:30 - len(self.text)]
+		TextInput1:
+			id: password
+			password: True
+			font_size: 16
+			size_hint: 1, 0.071
+			pos_hint: {"x": 0, "top": 0.56}
+		Label1:
+			text: "confirm password"
+			size_hint: 1, 0.09
+			pos_hint: {"x": 0, "top": 0.48}
+		TextInput1:
+			id: passwordConf
+			password: True
+			font_size: 16
+			size_hint: 1, 0.071
+			pos_hint: {"x": 0, "top": 0.41}
+			foreground_color: (0.50, 0.76, 0.86, 1) if self.focus == True else (0.5, 0.5, 0.5, 1) if self.text == "" else (1, 0.36, 0.41, 1) if self.text != password.text else (0.46, 0.74, 0.65, 1)
+		Label1:
+			text: "email address"
+			size_hint: 1, 0.1
+			pos_hint: {"x": 0, "top": 0.33}
+			input_filter: lambda text, from_undo: text[:100 - len(self.text)]
+		TextInput1:
+			id: email
+			size_hint: 1, 0.071
+			pos_hint: {"x": 0, "top": 0.26}
+		Button1:
+			text: "create account"
+			size_hint: 0.61, 0.095
+			pos_hint: {"x": 0.19, "top": 0.15}
+			on_release:
+				root.manager.transition.duration = 0
+			    root.createAccountButton()
+		Button2:
+			text: "< back"
+			background_color: (0, 0, 0, 0)
+			color: (0.15, 0.22, 0.28, 1)
+			size_hint: 0.24, 0.059
+			pos_hint: {"x": 0, "top": 0.99}
+			on_release:
+				displayName.text = ""
+				username.text = ""
+				password.text = ""
+				passwordConf.text = ""
+				email.text = ""
+				app.root.current = "loadscreen"
+		        root.manager.transition.direction = "right"
+
+<ViewCreated>:
+	name: "viewcreated"
+	ViewBar:
+	Button3:
+		size_hint: 0.50, 0.13
+		pos_hint: {"x": 0, "top": 1}
+		text: "created"
+	Button4:
+		size_hint: 0.50, 0.13
+		pos_hint: {"x": 0.5, "top": 1}
+		text: "joined"
+		on_release:
+			app.root.current = "viewjoined"
+
+<ViewCreatedDetails>:
+	name: "viewcreateddetails"
+	ViewBar:
+
+<ViewCreatedDates>:
+	name: "viewcreateddates"
+	ViewBar:
+
+<ViewCreatedAvailability>:
+	name: "viewcreatedavailability"
+	ViewBar:
+
+<ViewJoined>:
+	name: "viewjoined"
+	ViewBar:
+	Button4:
+		size_hint: 0.50, 0.13
+		pos_hint: {"x": 0, "top": 1}
+		text: "created"
+		on_release:
+			app.root.current = "viewcreated"
+	Button3:
+		size_hint: 0.50, 0.13
+		pos_hint: {"x": 0.5, "top": 1}
+		text: "joined"
+
+<ViewJoinedDetails>:
+	name: "viewjoineddetails"
+	ViewBar:
+
+<ViewJoinedAvailability>:
+	name: "viewjoinedavailability"
+	ViewBar:
+
+<ViewJoinedPoll>:
+	name: "viewjoinedpoll"
+	ViewBar:
+
+<CreateEventDetails>:
+	name: "createeventdetails"
+	eventname: eventname
+	CreateBar:
+	Button3:
+		size_hint: 0.333, 0.11
+		pos_hint: {"x": 0, "top": 1}
+		text: "details"
+	Button4:
+		size_hint: 0.334, 0.11
+		pos_hint: {"x": 0.333, "top": 1}
+		text: "dates"
+		on_release:
+			app.root.current = "createeventdates"
+	Button4:
+		size_hint: 0.333, 0.11
+		pos_hint: {"x": 0.667, "top": 1}
+		text: "invites"
+		on_release:
+			app.root.current = "createeventinvites"
+	Label1:
+		text: "event name"
+		size_hint: 1, 0.086
+		pos_hint: {"x": 0, "top": 0.84}
+	TextInput1:
+		id: eventname
+		size_hint: 1, 0.095
+		pos_hint: {"x": 0, "top": 0.76}
+		input_filter: lambda text, from_undo: text[:20 - len(self.text)]
+	IconButton:
+		size_hint: 0.07, 0.053
+		pos_hint: {"x": 0.87, "top": 0.82}
+		on_release: root.info()
+		Image:
+			source: "images/info1.png"
+			y: self.parent.y
+			x: self.parent.x
+			size: self.parent.size
+	#description
+	IconButton:
+		size_hint: 0.37, 0.07
+		pos_hint: {"x": 0.039, "top": 0.58}
+		on_release:
+			Factory.CreateDescription().open()
+	Image:
+		source: "images/add1.png"
+		size_hint: 0.12, 0.12
+		pos_hint: {"x": 0.04, "top": 0.59}
+	Label1:
+		text: "description"
+		text_size: self.size
+		halign: "left"
+		valign: "middle"
+		x: self.parent.x
+		y: self.parent.y
+		size_hint: 0.30, 0.086
+		pos_hint: {"x": 0.19, "top": 0.575}
+	#poll
+	IconButton:
+		size_hint: 0.37, 0.07
+		pos_hint: {"x": 0.54, "top": 0.58}
+		on_release:
+			Factory.CreatePoll().open()
+	Image:
+		source: "images/add1.png"
+		size_hint: 0.12, 0.12
+		pos_hint: {"x": 0.55, "top": 0.59}
+	Label1:
+		text: "poll"
+		text_size: self.size
+		halign: "left"
+		valign: "middle"
+		x: self.parent.x
+		y: self.parent.y
+		size_hint: 0.25, 0.086
+		pos_hint: {"x": 0.696, "top": 0.575}
+	#location
+	IconButton:
+		size_hint: 0.37, 0.07
+		pos_hint: {"x": 0.039, "top": 0.48}
+		on_release:
+			Factory.CreateLocation().open()
+	Image:
+		source: "images/add1.png"
+		size_hint: 0.12, 0.12
+		pos_hint: {"x": 0.04, "top": 0.49}
+	Label1:
+		text: "location"
+		text_size: self.size
+		halign: "left"
+		valign: "middle"
+		x: self.parent.x
+		y: self.parent.y
+		size_hint: 0.30, 0.086
+		pos_hint: {"x": 0.19, "top": 0.475}
+	#tags
+	IconButton:
+		size_hint: 0.37, 0.07
+		pos_hint: {"x": 0.54, "top": 0.48}
+		on_release:
+			Factory.CreateTags().open()
+	Image:
+		source: "images/add1.png"
+		size_hint: 0.12, 0.12
+		pos_hint: {"x": 0.55, "top": 0.49}
+	Label1:
+		text: "tags"
+		text_size: self.size
+		halign: "left"
+		valign: "middle"
+		x: self.parent.x
+		y: self.parent.y
+		size_hint: 0.25, 0.086
+		pos_hint: {"x": 0.696, "top": 0.475}
+
+<CreateEventDates>:
+	name: "createeventdates"
+	CreateBar:
+	Button4:
+		size_hint: 0.333, 0.11
+		pos_hint: {"x": 0, "top": 1}
+		text: "details"
+		on_release:
+			app.root.current = "createeventdetails"
+	Button3:
+		size_hint: 0.334, 0.11
+		pos_hint: {"x": 0.333, "top": 1}
+		text: "dates"
+	Button4:
+		size_hint: 0.333, 0.11
+		pos_hint: {"x": 0.667, "top": 1}
+		text: "invites"
+		on_release:
+			app.root.current = "createeventinvites"
+
+<CreateEventInvites>:
+	name: "createeventinvites"
+	CreateBar:
+	Button4:
+		size_hint: 0.333, 0.11
+		pos_hint: {"x": 0, "top": 1}
+		text: "details"
+		on_release:
+			app.root.current = "createeventdetails"
+	Button4:
+		size_hint: 0.334, 0.11
+		pos_hint: {"x": 0.333, "top": 1}
+		text: "dates"
+		on_release:
+			app.root.current = "createeventdates"
+	Button3:
+		size_hint: 0.333, 0.11
+		pos_hint: {"x": 0.667, "top": 1}
+		text: "invites"
+
+<JoinDetails>:
+	name: "joindetails"
+	JoinBar:
+
+<JoinInvitations>:
+	name: "joininvitations"
+	JoinBar:
+
+<JoinAvailability>:
+	name: "joinavailability"
+	JoinBar:
+
+<JoinVote>:
+	name: "joinvote"
+	JoinBar:
+
+<Profile>:
+	name: "profile"
+	username: username
+	displayName: displayName
+	email: email
+	password: password
+	passwordConf: passwordConf
+	ProfileBar:
+	Label1:
+		text: "username"
+		color: (0.75, 0.75, 0.75, 1)
+		size_hint: 0.44, 0.072
+		pos_hint: {"x": 0.016, "top": 0.92}
+	Label1:
+		text: "(can't be changed)"
+		color: (0.75, 0.75, 0.75, 1)
+		size_hint: 0.40, 0.06
+		pos_hint: {"x": 0.04, "top": 0.88}
+	Label1:
+		id: username
+		color: (0.75, 0.75, 0.75, 1)
+		size_hint: 0.54, 0.07
+		pos_hint: {"x": 0.45, "top": 0.915}
+	Label1:
+		text: "display name"
+		color: (0.50, 0.50, 0.50, 1)
+		size_hint: 0.44, 0.072
+		pos_hint: {"x": 0.016, "top": 0.79}
+	TextInput1:
+		id: displayName
+		size_hint: 0.54, 0.07
+		pos_hint: {"x": 0.45, "top": 0.785}
+	Label1:
+		text: "email"
+		color: (0.50, 0.50, 0.50, 1)
+		size_hint: 0.44, 0.072
+		pos_hint: {"x": 0.016, "top": 0.69}
+	TextInput1:
+		id: email
+		font_size: (self.height*0.55)-(0.2*len(self.text)) if (0.2* len(self.text)) < self.height * 0.55 else 3 if (self.height*0.55)-(0.2*len(self.text)) < 0 else self.height * 0.55 #shrinks to fit longer emails as it is a small box
+		padding: [0, 0.6*(self.height-self.line_height), 0, 0]
+		size_hint: 0.54, 0.07
+		pos_hint: {"x": 0.45, "top": 0.685}
+	Label1:
+		text: "password"
+		color: (0.50, 0.50, 0.50, 1)
+		font_size: 14
+		size_hint: 0.44, 0.072
+		pos_hint: {"x": 0.016, "top": 0.59}
+	TextInput1:
+		id: password
+		password: True
+		size_hint: 0.54, 0.07
+		pos_hint: {"x": 0.45, "top": 0.585}
+	Label1:
+		text: "confirm password"
+		color: (0.50, 0.50, 0.50, 1)
+		size_hint: 0.44, 0.064
+		pos_hint: {"x": 0.016, "top": 0.49}
+	TextInput1:
+		id: passwordConf
+		password: True
+		font_size: 14
+		size_hint: 0.54, 0.07
+		pos_hint: {"x": 0.45, "top": 0.495}
+		foreground_color: (1, 0.36, 0.41, 1)
+	Button1:
+		text: "save changes"
+		size_hint: 0.61, 0.12
+		pos_hint: {"x": 0.19, "top": 0.37}
+		on_release:
+			root.saveChangesButton()
+	Button2:
+		text: "sign out"
+		background_color: (0, 0, 0, 0)
+		color: (0.15, 0.22, 0.28, 1)
+		size_hint: 0.28, 0.059
+		pos_hint: {"x": 0.72, "top": 0.99}
+		on_release:
+			root.signOut()
